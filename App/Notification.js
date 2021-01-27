@@ -3,16 +3,6 @@ import {Alert, View, Text} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import messaging from '@react-native-firebase/messaging';
 
-// function App() {
-//   useEffect(() => {
-//     const unsubscribe = messaging().onMessage(async remoteMessage => {
-//       Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
-//     });
-
-//     return unsubscribe;
-//   }, []);
-// }
-
 const Notification = (props) => {
   useEffect(() => {
     async function checkPermission() {
@@ -30,15 +20,6 @@ const Notification = (props) => {
 
     return foreground;
   }, []);
-
-  //   const checkPermission = async () => {
-  //     const enabled = await messaging().hasPermission();
-  //     if (enabled) {
-  //       getToken();
-  //     } else {
-  //       requestPermission();
-  //     }
-  //   };
 
   const getToken = async () => {
     let fcmToken = await AsyncStorage.getItem('fcmToken');
